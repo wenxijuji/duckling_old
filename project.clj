@@ -1,6 +1,6 @@
 (defproject juji/duckling "0.4.24"
   :description "Date & Number parser"
-  :license {:url "https://github.com/wit-ai/duckling"
+  :license {:url "https://github.com/wenxijuji/duckling_old"
             :comments "see LICENSE"}
   :url "https://github.com/wenxijuji/duckling_old"
   :plugins [[s3-wagon-private "1.1.2"]
