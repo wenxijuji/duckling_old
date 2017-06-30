@@ -218,7 +218,7 @@
   [lang]
   (->> ["corpus" "rules"]
        (map (fn [dir]
-              (let [files (->> (format "languages/%s/%s" lang dir)
+              (let [files (->> (format "nlpmodels/duckling_languages/%s/%s" lang dir)
                                res/get-files
                                (remove #(clojure.string/starts-with? % "_"))
                                (map #(subs % 0 (- (count %) 4)))
@@ -236,7 +236,7 @@
 
 (defn- read-rules
   [lang new-file]
-  (-> (format "languages/%s/rules/%s.clj" lang new-file)
+  (-> (format "nlpmodels/duckling_languages/%s/rules/%s.clj" lang new-file)
       io/resource
       slurp
       read-string
@@ -244,7 +244,7 @@
 
 (defn- read-corpus
   [lang new-file]
-  (-> (format "languages/%s/corpus/%s.clj" lang new-file)
+  (-> (format "nlpmodels/duckling_languages/%s/corpus/%s.clj" lang new-file)
       io/resource
       corpus/read-corpus))
 
@@ -289,7 +289,7 @@
   ([{:keys [languages config]}]
    (let [langs (seq languages)
          lang-config (when (or langs (empty? config))
-                       (cond-> (set (res/get-subdirs "languages"))
+                       (cond-> (set (res/get-subdirs "nlpmodels/duckling_languages"))
                          langs (set/intersection (set langs))
                          true gen-config-for-langs))
          config (merge lang-config config)]
