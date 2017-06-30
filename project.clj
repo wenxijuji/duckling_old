@@ -11,8 +11,7 @@
                  [org.clojure/tools.logging "0.2.6"]
                  [clj-time "0.8.0"]
                  [prismatic/plumbing "0.5.3"]]
-  :deploy-repositories [["releases" {:sign-releases false :url "https://clojars.org/repo"}]
-                        ["snapshots" {:sign-releases false :url "https://clojars.org/repo"}]]
+  :deploy-repositories [["clojars" {:sign-releases false}]]
   :profiles {:dev {:dependencies [[org.clojure/tools.trace "0.7.6"]
                                   [midje "1.6.3"]
                                   [cheshire "5.3.1"]]}
